@@ -128,7 +128,7 @@ export const properties: Property[] = [
     bedrooms: 4,
     bathrooms: 5,
     sqft: 6300,
-    address: "Prampram",
+    address: "",
     city: "Newport",
     state: "RI",
     zipCode: "02840",
@@ -300,7 +300,10 @@ export const properties: Property[] = [
       "https://images.pexels.com/photos/2079249/pexels-photo-2079249.jpeg"
     ],
     virtualTour: "https://www.example.com/virtualtour/urban-penthouse"
+
+    
   }
+
 ];
 
 export const testimonials: Testimonial[] = [

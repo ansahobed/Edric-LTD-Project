@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 text-gold-500 flex-shrink-0" />
                 <a href="mailto:ceo@edric.group" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  info@edric.group
+                  ceo@edric.group
                 </a>
               </li>
             </ul>
@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-charcoal-700 mt-12 pt-8 text-center text-slate-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} EliteEstates. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} EDRIC Limited. All rights reserved.  By: IT Department</p>
         </div>
       </div>
     </footer>

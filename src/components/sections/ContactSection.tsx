@@ -26,7 +26,7 @@ const ContactSection: React.FC = () => {
                   <MapPin size={20} className="mr-4 text-gold-500 flex-shrink-0" />
                   <div>
                     <h4 className="font-medium mb-1">Our Office</h4>
-                    <p className="text-slate-300">123 Luxury Avenue, Riverside, CA 92506</p>
+                    <p className="text-slate-300">No. 1 Quail Link Comm. 17, Tema, P.O BOX SK 1653 . Accra-Ghana</p>
                   </div>
                 </div>
                 
@@ -35,8 +35,8 @@ const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="font-medium mb-1">Phone</h4>
                     <p className="text-slate-300">
-                      <a href="tel:+1234567890" className="hover:text-gold-500 transition-colors">
-                        (123) 456-7890
+                      <a href="tel:+233303409426 / +233244158119" className="hover:text-gold-500 transition-colors">
+                        (233)-30-340-9426 /(233)-24-415-8119 
                       </a>
                     </p>
                   </div>
@@ -47,8 +47,8 @@ const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="font-medium mb-1">Email</h4>
                     <p className="text-slate-300">
-                      <a href="mailto:info@eliteestates.com" className="hover:text-gold-500 transition-colors">
-                        info@eliteestates.com
+                      <a href="mailto:info@edric.group  / ceo@edric.group" className="hover:text-gold-500 transition-colors">
+                        info@edric.group / ceo@edric.group
                       </a>
                     </p>
                   </div>
@@ -58,8 +58,8 @@ const ContactSection: React.FC = () => {
                   <Clock size={20} className="mr-4 text-gold-500 flex-shrink-0" />
                   <div>
                     <h4 className="font-medium mb-1">Hours</h4>
-                    <p className="text-slate-300">Monday - Friday: 9AM - 6PM</p>
-                    <p className="text-slate-300">Saturday: 10AM - 4PM</p>
+                    <p className="text-slate-300">Monday - Friday: 8AM - 5PM</p>
+                    <p className="text-slate-300">Saturday: 10AM - 2PM</p>
                     <p className="text-slate-300">Sunday: By appointment only</p>
                   </div>
                 </div>

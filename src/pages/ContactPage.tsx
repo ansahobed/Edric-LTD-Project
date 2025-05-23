@@ -10,8 +10,8 @@ const ContactPage: React.FC = () => {
   };
   
   const defaultCenter = {
-    lat: 34.0605, // 1100 Glendon Ave coordinates
-    lng: -118.4444
+    lat: 5.64562, // 1100 Glendon Ave coordinates
+    lng: -0.06762
   };
 
   const mapOptions = {
@@ -127,7 +127,7 @@ const ContactPage: React.FC = () => {
               >
                 <Marker 
                   position={defaultCenter}
-                  title="Edric Group Headquarters"
+                  title="Edric Limited"
                 />
               </GoogleMap>
             </LoadScript>

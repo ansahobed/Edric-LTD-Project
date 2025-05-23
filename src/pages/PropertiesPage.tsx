@@ -69,6 +69,7 @@ const PropertiesPage: React.FC = () => {
                   <option value="all">All Properties</option>
                   <option value="riverfront">Riverfront</option>
                   <option value="inland">Inland</option>
+                  
                 </select>
               </div>
               

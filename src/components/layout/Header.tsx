@@ -40,7 +40,7 @@ const Header: React.FC = () => {
           className="flex items-center"
         >
           <span className={`font-serif text-2xl font-bold ${isScrolled ? 'text-charcoal-800' : 'text-white'}`}>
-            ELITE<span className="text-gold-500">ESTATES</span>
+            EDRIC<span className="text-gold-500">  Limited</span>
           </span>
         </Link>
 

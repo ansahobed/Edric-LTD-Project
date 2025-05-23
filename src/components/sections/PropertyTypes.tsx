@@ -11,7 +11,7 @@ const PropertyTypes: React.FC = () => {
             Exclusive Property Collections
           </h2>
           <p className="text-slate-600 max-w-3xl mx-auto">
-            EliteEstates specializes in two distinct luxury property categories, each offering 
+            EDRIC Limited specializes in two distinct luxury property categories, each offering 
             unique lifestyle advantages for our discerning clientele.
           </p>
         </div>

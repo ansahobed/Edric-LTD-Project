@@ -6,7 +6,7 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <Hero 
-        title="About EliteEstates"
+        title="About EDRIC Limited"
         subtitle="We specialize in exceptional properties that represent the pinnacle of luxury living."
         imageUrl="https://images.pexels.com/photos/1438834/pexels-photo-1438834.jpeg"
       />
@@ -20,7 +20,7 @@ const AboutPage: React.FC = () => {
               </h2>
               <div className="space-y-4 text-slate-700">
                 <p>
-                  Founded in 2008, EliteEstates was born from a vision to create a real estate 
+                  Founded in 2025, EDRIC Limited was born from a vision to create a real estate 
                   experience as exceptional as the properties we represent. Our founders recognized 
                   a gap in the market for a truly bespoke service catering to discerning clients 
                   seeking extraordinary homes.
@@ -32,7 +32,7 @@ const AboutPage: React.FC = () => {
                   unwavering commitment to quality, integrity, and personalized service.
                 </p>
                 <p>
-                  Today, EliteEstates leads the luxury market not only in matching exceptional 
+                  Today, EDRIC Limited leads the luxury market not only in matching exceptional 
                   clients with extraordinary properties but also in pioneering the integration of 
                   sustainability and smart technology into the luxury real estate experience.
                 </p>
@@ -125,7 +125,7 @@ const AboutPage: React.FC = () => {
                 Our Team
               </h2>
               <p className="text-slate-600 max-w-3xl mx-auto">
-                Meet the exceptional professionals who make EliteEstates the leader in luxury real estate.
+                Meet the exceptional professionals who make EDRIC Limited the leader in luxury real estate.
               </p>
             </div>
             
@@ -134,16 +134,16 @@ const AboutPage: React.FC = () => {
                 <div className="relative h-80 overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg" 
-                    alt="Victoria Bennett" 
+                    alt="Courage Dogbegah" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-xl text-charcoal-800 mb-1">Victoria Bennett</h3>
+                  <h3 className="font-serif text-xl text-charcoal-800 mb-1">Courage Dogbegah</h3>
                   <p className="text-gold-600 mb-3">Founder & CEO</p>
                   <p className="text-slate-600">
-                    With over 20 years of experience in luxury real estate, Victoria's vision and leadership 
-                    have established EliteEstates as the premier destination for extraordinary properties.
+                    With over 20 years of experience in luxury real estate, Courage's vision and leadership 
+                    have established EDRIC Limited as the premier destination for extraordinary properties.
                   </p>
                 </div>
               </div>
@@ -152,12 +152,12 @@ const AboutPage: React.FC = () => {
                 <div className="relative h-80 overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg" 
-                    alt="Jonathan Reynolds" 
+                    alt="Kwame Osei" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-xl text-charcoal-800 mb-1">Jonathan Reynolds</h3>
+                  <h3 className="font-serif text-xl text-charcoal-800 mb-1">Kwame Osei</h3>
                   <p className="text-gold-600 mb-3">Director of Riverfront Properties</p>
                   <p className="text-slate-600">
                     Jonathan's deep knowledge of waterfront real estate and boating amenities makes him 
@@ -170,15 +170,15 @@ const AboutPage: React.FC = () => {
                 <div className="relative h-80 overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg" 
-                    alt="Sophia Chen" 
+                    alt="Kojo Mensah" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-xl text-charcoal-800 mb-1">Sophia Chen</h3>
+                  <h3 className="font-serif text-xl text-charcoal-800 mb-1">Kojo Mensah</h3>
                   <p className="text-gold-600 mb-3">Director of Inland Estates</p>
                   <p className="text-slate-600">
-                    Sophia specializes in exclusive inland properties, with particular expertise in 
+                    Kojo specializes in exclusive inland properties, with particular expertise in 
                     eco-friendly luxury homes and sustainable design innovations.
                   </p>
                 </div>

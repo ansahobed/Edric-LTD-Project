@@ -11,7 +11,7 @@ const AboutSection: React.FC = () => {
               Redefining Luxury Real Estate Since 2008
             </h2>
             <p className="text-slate-600 mb-6">
-              At EliteEstates, we specialize in exceptional properties that represent the pinnacle of luxury living. 
+              At EDRIC Limited, we specialize in exceptional properties that represent the pinnacle of luxury living. 
               Our curated portfolio includes magnificent riverfront estates with private docks and boating amenities, 
               as well as prestigious inland properties featuring unparalleled privacy and architectural excellence.
             </p>

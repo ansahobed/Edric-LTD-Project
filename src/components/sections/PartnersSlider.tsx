@@ -42,7 +42,7 @@ const PartnersSlider: React.FC = () => {
         <Swiper
           modules={[Autoplay]}
           spaceBetween={30}
-          slidesPerView={2}
+          slidesPerView={4}
           autoplay={{ delay: 3000 }}
           loop
           breakpoints={{

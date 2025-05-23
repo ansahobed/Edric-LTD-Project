@@ -36,10 +36,10 @@ export const properties: Property[] = [
     bedrooms: 5,
     bathrooms: 6,
     sqft: 7200,
-    address: "123 Riverside Drive",
-    city: "Palm Beach",
-    state: "FL",
-    zipCode: "33480",
+    address: "Trassaco",
+    city: "Greater Accra",
+    state: "GH",
+    zipCode: "GA",
     description: "Nestled along the pristine waterfront, this magnificent villa offers unobstructed river views and direct access to your private dock. The architecture seamlessly blends modern luxury with timeless elegance, featuring floor-to-ceiling windows that bathe the interior in natural light and frame the spectacular water vistas. The spacious open-concept design includes a chef's kitchen with top-of-the-line appliances, a wine cellar, and multiple entertaining spaces that flow onto expansive terraces. The primary suite is a true sanctuary with a spa-like bathroom and a private balcony overlooking the water. The meticulously landscaped grounds include an infinity pool, outdoor kitchen, and fire pit area, perfect for enjoying the sunset over the river.",
     features: [
       "Private dock with boat lift",
@@ -82,10 +82,10 @@ export const properties: Property[] = [
     bedrooms: 6,
     bathrooms: 8,
     sqft: 8500,
-    address: "45 Highland Vista",
-    city: "Beverly Hills",
-    state: "CA",
-    zipCode: "90210",
+    address: "Lagoon View Estate",
+    city: "Sakumono",
+    state: "GH",
+    zipCode: "TM",
     description: "Perched atop the exclusive hills with panoramic city views, this architectural masterpiece represents the pinnacle of luxury living. The striking contemporary design features clean lines, dramatic angles, and an abundance of natural light through the expansive walls of glass. The seamless indoor-outdoor flow creates a serene living environment that takes full advantage of the Southern California climate. The property boasts a spectacular infinity pool that appears to merge with the horizon, a wellness wing with a gym, sauna, and massage room, plus a separate guest house for visitors. The primary suite occupies its own wing with dual bathrooms, expansive walk-in closets, and a private terrace with fireplace. State-of-the-art smart home technology controls everything from security to entertainment systems with effortless precision.",
     features: [
       "Panoramic city views from every room",
@@ -128,7 +128,7 @@ export const properties: Property[] = [
     bedrooms: 4,
     bathrooms: 5,
     sqft: 6300,
-    address: "78 Harbor View Lane",
+    address: "Prampram",
     city: "Newport",
     state: "RI",
     zipCode: "02840",
@@ -306,23 +306,23 @@ export const properties: Property[] = [
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
-    name: "Jonathan & Sarah Thompson",
+    name: "Obed ",
     title: "Waterfront Property Buyers",
-    quote: "EliteEstates provided an exceptional experience from start to finish. Their understanding of luxury riverfront properties is unmatched. They helped us find our dream home with all the yacht amenities we desired.",
+    quote: "EDRIC Limited provided an exceptional experience from start to finish. Their understanding of luxury riverfront properties is unmatched. They helped us find our dream home with all the yacht amenities we desired.",
     image: "https://images.pexels.com/photos/1586996/pexels-photo-1586996.jpeg"
   },
   {
     id: "t2",
-    name: "Alexandra Chen",
+    name: "Seyram",
     title: "Eco-Luxury Home Owner",
-    quote: "I was impressed by EliteEstates' commitment to showcasing properties with sophisticated eco-friendly features. They found me a home that perfectly balances luxury living with environmental responsibility.",
+    quote: "I was impressed by EDRIC Limited' commitment to showcasing properties with sophisticated eco-friendly features. They found me a home that perfectly balances luxury living with environmental responsibility.",
     image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
   },
   {
     id: "t3",
-    name: "Michael & Emily Rodriguez",
+    name: "Miriam",
     title: "Hillside Estate Clients",
-    quote: "The team at EliteEstates understood exactly what we were looking for in our inland property. Their attention to detail and knowledge of smart home technology made our buying experience seamless.",
+    quote: "The team at EDRIC Limited understood exactly what we were looking for in our inland property. Their attention to detail and knowledge of smart home technology made our buying experience seamless.",
     image: "https://images.pexels.com/photos/936043/pexels-photo-936043.jpeg"
   }
 ];

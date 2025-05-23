@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div>
             <h3 className="font-serif text-2xl mb-6">
-              ELITE<span className="text-gold-500">ESTATES</span>
+              EDRIC<span className="text-gold-500">  Limited</span>
             </h3>
             <p className="text-slate-300 mb-6">
               Redefining luxury living with exclusive properties that blend opulence and sustainability.
@@ -88,18 +88,30 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 text-gold-500 flex-shrink-0 mt-1" />
-                <span className="text-slate-300">123 Luxury Avenue, Riverside, CA 92506</span>
+                <span className="text-slate-300">No. 1 Quail Link Comm. 17, Tema, P.O BOX SK 1653 . Accra-Ghana</span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-3 text-gold-500 flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  (123) 456-7890
+                <a href="tel:+233303409426" className="text-slate-300 hover:text-gold-500 transition-colors">
+                  (233)-30-340-9426 
+                </a>
+              </li>
+              <li className="flex items-center">
+                <Phone size={20} className="mr-3 text-gold-500 flex-shrink-0" />
+                <a href="tel:+233244158119" className="text-slate-300 hover:text-gold-500 transition-colors">
+                  (233)-24-415-8119
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 text-gold-500 flex-shrink-0" />
-                <a href="mailto:info@eliteestates.com" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  info@eliteestates.com
+                <a href="mailto:info@edric.group" className="text-slate-300 hover:text-gold-500 transition-colors">
+                  info@edric.group
+                </a>
+              </li>
+              <li className="flex items-center">
+                <Mail size={20} className="mr-3 text-gold-500 flex-shrink-0" />
+                <a href="mailto:ceo@edric.group" className="text-slate-300 hover:text-gold-500 transition-colors">
+                  info@edric.group
                 </a>
               </li>
             </ul>

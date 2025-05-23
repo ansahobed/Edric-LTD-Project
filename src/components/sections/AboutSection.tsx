@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-serif text-charcoal-800 mb-6">
-              Redefining Luxury Real Estate Since 2008
+              Redefining Luxury Real Estate Since 2025
             </h2>
             <p className="text-slate-600 mb-6">
               At EDRIC Limited, we specialize in exceptional properties that represent the pinnacle of luxury living. 

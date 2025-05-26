@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropertyCard from '../ui/PropertyCard';
 import Button from '../ui/Button';
-import { properties } from '../../utils/data';
+import { supabase } from '../../lib/supabaseClient';
 
 const FeaturedProperties: React.FC = () => {
-  // Filter for featured properties or just take the first 3
-  const featuredProperties = properties
-    .filter(property => property.featured)
-    .slice(0, 3);
+  const [featuredProperties, setFeaturedProperties] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFeatured = async () => {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from('properties')
+        .select('*')
+        .eq('featured', true)
+        .order('created_at', { ascending: false })
+        .limit(3);
+
+      if (!error) setFeaturedProperties(data || []);
+      else console.error('Error fetching featured properties:', error);
+      setLoading(false);
+    };
+
+    fetchFeatured();
+  }, []);
 
   return (
     <section className="section-padding bg-slate-50">
@@ -22,12 +38,16 @@ const FeaturedProperties: React.FC = () => {
             location, and exceptional amenities to create unparalleled living experiences.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProperties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))}
-        </div>
+
+        {loading ? (
+          <p className="text-center text-slate-500">Loading featured properties...</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProperties.map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))}
+          </div>
+        )}
         
         <div className="mt-12 text-center">
           <Link to="/properties">

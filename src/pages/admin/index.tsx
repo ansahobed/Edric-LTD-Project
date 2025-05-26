@@ -28,6 +28,14 @@ const adminLinks = [
     to: "/admin/investors",
     desc: "Review and respond to investor inquiries.",
   },
+
+    {
+  name: "Trusted Partners",
+  icon: (<Users className="w-7 h-7 text-charcoal-700" /> ),
+  to: "/admin/partners",
+  desc: "Add or edit affiliated partners & institutions.",
+}
+
 ];
 
 export default function AdminDashboard() {

@@ -16,9 +16,11 @@ import AdminProperties from './pages/admin/properties';
 import AdminBoats from './pages/admin/boats';
 import AdminProjects from './pages/admin/projects';
 import AdminInvestors from './pages/admin/investors';
+import AdminPartners from './pages/admin/Partners';
 
 // Public project overview
 import ProjectOverview from './pages/projects/[id]';
+
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
             <Route path="/admin/boats" element={<AdminBoats />} />
             <Route path="/admin/projects" element={<AdminProjects />} />
             <Route path="/admin/investors" element={<AdminInvestors />} />
+            <Route path="/admin/partners" element={<AdminPartners />} />
+
           </Routes>
         </main>
         <Footer />

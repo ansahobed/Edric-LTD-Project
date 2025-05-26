@@ -10,7 +10,7 @@ const ContactPage: React.FC = () => {
   };
   
   const defaultCenter = {
-    lat: 5.64562, // 1100 Glendon Ave coordinates
+    lat: 5.64562, // EDRIC Group location
     lng: -0.06762
   };
 

@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => {
         subtitle="We specialize in exceptional properties that represent the pinnacle of luxury living."
         imageUrl="https://images.pexels.com/photos/1438834/pexels-photo-1438834.jpeg"
       />
-      
+
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">

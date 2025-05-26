@@ -1,32 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { supabase } from '../../lib/supabaseClient'; // ✅ adjust the path as needed
 import 'swiper/css';
 
-const partners = [
-  {
-    name: "Luxury Homes International",
-    logo: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
-  },
-  {
-    name: "Elite Architecture",
-    logo: "https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg",
-  },
-  {
-    name: "Smart Living Solutions",
-    logo: "https://images.pexels.com/photos/1643385/pexels-photo-1643385.jpeg",
-  },
-  {
-    name: "Eco Build Masters",
-    logo: "https://images.pexels.com/photos/1643386/pexels-photo-1643386.jpeg",
-  },
-  {
-    name: "Premium Interiors",
-    logo: "https://images.pexels.com/photos/1643387/pexels-photo-1643387.jpeg",
-  }
-];
-
 const PartnersSlider: React.FC = () => {
+  const [partners, setPartners] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      const { data, error } = await supabase
+        .from('partners') // ✅ ensure this matches your Supabase table
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Failed to fetch partners:', error.message);
+      } else {
+        setPartners(data || []);
+      }
+      setLoading(false);
+    };
+
+    fetchPartners();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="section-padding bg-white">
+        <div className="container-custom text-center text-slate-500">Loading partners...</div>
+      </section>
+    );
+  }
+
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
@@ -38,7 +45,7 @@ const PartnersSlider: React.FC = () => {
             We collaborate with industry leaders to deliver exceptional quality and innovation in luxury real estate.
           </p>
         </div>
-        
+
         <Swiper
           modules={[Autoplay]}
           spaceBetween={30}
@@ -48,7 +55,7 @@ const PartnersSlider: React.FC = () => {
           breakpoints={{
             640: { slidesPerView: 3 },
             768: { slidesPerView: 4 },
-            1024: { slidesPerView: 5 }
+            1024: { slidesPerView: 5 },
           }}
           className="py-8"
         >

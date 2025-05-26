@@ -28,19 +28,17 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-md py-3'
-          : 'bg-transparent py-6'
+      className={`fixed w-full z-50 ${
+        isScrolled ? 'bg-white shadow-md py-3' : 'bg-white py-6'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
-        <Link 
-          to="/" 
-          className="flex items-center"
-        >
-          <span className={`font-serif text-2xl font-bold ${isScrolled ? 'text-charcoal-800' : 'text-white'}`}>
-            EDRIC<span className="text-gold-500">  Limited</span>
+        <Link to="/" className="flex items-center">
+          <span className="font-serif text-2xl font-bold leading-none text-charcoal-800">
+            EDRIC&nbsp;
+            <span className="ml-1 font-bold text-gold-600">
+              Limited
+            </span>
           </span>
         </Link>
 
@@ -52,7 +50,7 @@ const Header: React.FC = () => {
                 <Link
                   to={link.path}
                   className={`font-medium text-sm tracking-wider hover:text-gold-500 transition-colors ${
-                    isScrolled ? 'text-charcoal-700' : 'text-white'
+                    isScrolled ? 'text-charcoal-700' : 'text-charcoal-700'
                   } ${
                     location.pathname === link.path ? 'border-b-2 border-gold-500' : ''
                   }`}
@@ -70,9 +68,9 @@ const Header: React.FC = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={`w-6 h-6 ${isScrolled ? 'text-charcoal-800' : 'text-white'}`} />
+            <X className={`w-6 h-6 text-charcoal-800`} />
           ) : (
-            <Menu className={`w-6 h-6 ${isScrolled ? 'text-charcoal-800' : 'text-white'}`} />
+            <Menu className={`w-6 h-6 text-charcoal-800`} />
           )}
         </button>
 

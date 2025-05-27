@@ -6,7 +6,15 @@ import { CLOUDINARY_URL, CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_FOLDER } from '../
 export default function AdminProperties() {
   const [properties, setProperties] = useState<any[]>([]);
   const [newProperty, setNewProperty] = useState({
-    title: '', location: '', type: '', price: '', bedrooms: '', bathrooms: '', sqft: '', image_urls: []
+    title: '',
+    location: '',
+    type: '',
+    price: '',
+    bedrooms: '',
+    bathrooms: '',
+    sqft: '',
+    about: '',
+    image_urls: []
   });
 
   const fetchProperties = async () => {
@@ -42,7 +50,7 @@ export default function AdminProperties() {
     };
     const { error } = await supabase.from('properties').insert([submission]);
     if (!error) {
-      setNewProperty({ title: '', location: '', type: '', price: '', bedrooms: '', bathrooms: '', sqft: '', image_urls: [] });
+      setNewProperty({ title: '', location: '', type: '', price: '', bedrooms: '', bathrooms: '', sqft: '', about: '', image_urls: [] });
       fetchProperties();
     }
   };
@@ -55,7 +63,7 @@ export default function AdminProperties() {
   return (
     <div className="p-8 max-w-5xl mx-auto">
       <h2 className="text-3xl font-bold mb-8">Admin: Properties</h2>
-      
+
       {/* Add Property Form */}
       <div className="bg-white rounded-xl shadow-md p-8 mb-16">
         <h3 className="text-xl font-semibold mb-8">Add New Property</h3>
@@ -68,6 +76,7 @@ export default function AdminProperties() {
           <input type="number" placeholder="Bathrooms" className="input w-full" value={newProperty.bathrooms} onChange={e => setNewProperty({ ...newProperty, bathrooms: e.target.value })} />
           <input type="number" placeholder="Square Feet" className="input w-full" value={newProperty.sqft} onChange={e => setNewProperty({ ...newProperty, sqft: e.target.value })} />
           <input type="file" multiple className="input w-full" onChange={handleImageUpload} />
+          <textarea placeholder="About This Property" className="input w-full md:col-span-2" rows={4} value={newProperty.about} onChange={e => setNewProperty({ ...newProperty, about: e.target.value })} />
         </div>
         <button
           onClick={addProperty}
@@ -88,7 +97,8 @@ export default function AdminProperties() {
               <h3 className="text-lg font-bold mb-2">{prop.title}</h3>
               <p className="text-gray-600 mb-1">{prop.location} • {prop.type}</p>
               <p className="text-gray-800 font-semibold mb-3">${prop.price?.toLocaleString()}</p>
-              <p className="text-sm text-gray-600 mb-4">{prop.bedrooms} Beds • {prop.bathrooms} Baths • {prop.sqft} sqft</p>
+              <p className="text-sm text-gray-600 mb-2">{prop.bedrooms} Beds • {prop.bathrooms} Baths • {prop.sqft} sqft</p>
+              <p className="text-sm text-gray-500 mb-4 whitespace-pre-line">{prop.about}</p>
               <div className="flex gap-2 mt-auto overflow-x-auto mb-2">
                 {prop.image_urls?.map((url: string) => (
                   <img key={url} src={url} className="w-16 h-16 object-cover rounded" />

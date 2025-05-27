@@ -17,17 +17,16 @@ import AdminBoats from './pages/admin/boats';
 import AdminProjects from './pages/admin/projects';
 import AdminInvestors from './pages/admin/investors';
 import AdminPartners from './pages/admin/Partners';
+import AdminImageSlider from'./pages/admin/imageslider'; // ✅ Correct path to page
 
 // Public project overview
 import ProjectOverview from './pages/projects/[id]';
-
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
-        {/* Add pt-24 (or adjust to pt-28 if your header is taller) */}
         <main className="flex-grow pt-24">
           <Routes>
             {/* Public pages */}
@@ -47,7 +46,7 @@ function App() {
             <Route path="/admin/projects" element={<AdminProjects />} />
             <Route path="/admin/investors" element={<AdminInvestors />} />
             <Route path="/admin/partners" element={<AdminPartners />} />
-
+            <Route path="/admin/imageslider" element={<AdminImageSlider />} /> {/* ✅ NEW ROUTE */}
           </Routes>
         </main>
         <Footer />

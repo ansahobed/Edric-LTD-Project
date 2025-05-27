@@ -1,7 +1,5 @@
-// src/pages/admin/index.tsx
-
 import { Link } from "react-router-dom";
-import { Home, Building, Anchor, Layers, Users } from "lucide-react";
+import { Home, Building, Anchor, Layers, Users, Image } from "lucide-react"; // ✅ import Image icon
 
 const adminLinks = [
   {
@@ -28,14 +26,18 @@ const adminLinks = [
     to: "/admin/investors",
     desc: "Review and respond to investor inquiries.",
   },
-
-    {
-  name: "Trusted Partners",
-  icon: (<Users className="w-7 h-7 text-charcoal-700" /> ),
-  to: "/admin/partners",
-  desc: "Add or edit affiliated partners & institutions.",
-}
-
+  {
+    name: "Trusted Partners",
+    icon: <Users className="w-7 h-7 text-charcoal-700" />,
+    to: "/admin/partners",
+    desc: "Add or edit affiliated partners & institutions.",
+  },
+  {
+    name: "Homepage Image Slider", // ✅ NEW item
+    icon: <Image className="w-7 h-7 text-pink-600" />, // ✅ Use a relevant icon
+    to: "/admin/imageslider",
+    desc: "Add, update, or remove homepage carousel images.",
+  },
 ];
 
 export default function AdminDashboard() {

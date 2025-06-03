@@ -19,7 +19,7 @@ const slides = [
   },
   {
     image: "https://images.pexels.com/photos/2873064/pexels-photo-2873064.jpeg",
-    title: "Smart Home Innovation",
+    title: "Smart Homes",
     subtitle: "The future of sustainable luxury living"
   }
 ];

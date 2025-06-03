@@ -19,6 +19,7 @@ const HomePage: React.FC = () => {
       <ContactSection />
     </>
   );
+
 };
 
 export default HomePage;

@@ -16,7 +16,7 @@ import AdminProperties from './pages/admin/properties';
 import AdminBoats from './pages/admin/boats';
 import AdminProjects from './pages/admin/projects';
 import AdminInvestors from './pages/admin/investors';
-import AdminPartners from './pages/admin/Partners';
+import AdminPartners from './pages/admin/partners';
 import AdminImageSlider from'./pages/admin/imageslider'; // ✅ Correct path to page
 
 // Public project overview

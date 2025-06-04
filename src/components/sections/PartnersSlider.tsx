@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import { supabase } from '../../lib/supabaseClient'; // ✅ adjust the path as needed
+import { supabase } from '../../lib/supabaseClient';
 import 'swiper/css';
 
 const PartnersSlider: React.FC = () => {
@@ -11,8 +11,8 @@ const PartnersSlider: React.FC = () => {
   useEffect(() => {
     const fetchPartners = async () => {
       const { data, error } = await supabase
-        .from('partners') // ✅ ensure this matches your Supabase table
-        .select('logo_url')
+        .from('partners')
+        .select('logo_url, name')
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -61,11 +61,11 @@ const PartnersSlider: React.FC = () => {
         >
           {partners.map((partner, index) => (
             <SwiperSlide key={index}>
-              <div className="flex items-center justify-center p-6 bg-slate-50 rounded-lg h-32 transition-transform hover:scale-105">
+              <div className="flex items-center justify-center bg-white border rounded-lg h-32 shadow-md hover:shadow-lg transition-shadow duration-300">
                 <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-16 object-contain grayscale hover:grayscale-0 transition-all"
+                  src={partner.logo_url}
+                  alt={partner.name || 'Partner logo'}
+                  className="max-h-28 max-w-full object-contain"
                 />
               </div>
             </SwiperSlide>

@@ -12,7 +12,7 @@ const PartnersSlider: React.FC = () => {
     const fetchPartners = async () => {
       const { data, error } = await supabase
         .from('partners') // ✅ ensure this matches your Supabase table
-        .select('*')
+        .select('logo_url')
         .order('created_at', { ascending: false });
 
       if (error) {

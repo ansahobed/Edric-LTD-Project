@@ -5,6 +5,7 @@ import { CLOUDINARY_URL, CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_FOLDER } from '../
 
 export default function AdminProperties() {
   const [properties, setProperties] = useState<any[]>([]);
+  const [newFeature, setNewFeature] = useState('');
   const [newProperty, setNewProperty] = useState({
     title: '',
     location: '',
@@ -14,7 +15,8 @@ export default function AdminProperties() {
     bathrooms: '',
     sqft: '',
     about: '',
-    image_urls: []
+    image_urls: [] as string[],
+    features: [] as string[] // ✅ New field for features
   });
 
   const fetchProperties = async () => {
@@ -37,7 +39,27 @@ export default function AdminProperties() {
         return res.data.secure_url;
       })
     );
-    setNewProperty({ ...newProperty, image_urls: uploads });
+    setNewProperty((prev) => ({
+      ...prev,
+      image_urls: [...prev.image_urls, ...uploads]
+    }));
+  };
+
+  const handleAddFeature = () => {
+    if (newFeature.trim()) {
+      setNewProperty((prev) => ({
+        ...prev,
+        features: [...prev.features, newFeature.trim()]
+      }));
+      setNewFeature('');
+    }
+  };
+
+  const handleDeleteFeature = (index: number) => {
+    setNewProperty((prev) => ({
+      ...prev,
+      features: prev.features.filter((_, i) => i !== index)
+    }));
   };
 
   const addProperty = async () => {
@@ -50,7 +72,19 @@ export default function AdminProperties() {
     };
     const { error } = await supabase.from('properties').insert([submission]);
     if (!error) {
-      setNewProperty({ title: '', location: '', type: '', price: '', bedrooms: '', bathrooms: '', sqft: '', about: '', image_urls: [] });
+      setNewProperty({
+        title: '',
+        location: '',
+        type: '',
+        price: '',
+        bedrooms: '',
+        bathrooms: '',
+        sqft: '',
+        about: '',
+        image_urls: [],
+        features: []
+      });
+      setNewFeature('');
       fetchProperties();
     }
   };
@@ -64,7 +98,6 @@ export default function AdminProperties() {
     <div className="p-8 max-w-5xl mx-auto">
       <h2 className="text-3xl font-bold mb-8">Admin: Properties</h2>
 
-      {/* Add Property Form */}
       <div className="bg-white rounded-xl shadow-md p-8 mb-16">
         <h3 className="text-xl font-semibold mb-8">Add New Property</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-8">
@@ -77,7 +110,40 @@ export default function AdminProperties() {
           <input type="number" placeholder="Square Feet" className="input w-full" value={newProperty.sqft} onChange={e => setNewProperty({ ...newProperty, sqft: e.target.value })} />
           <input type="file" multiple className="input w-full" onChange={handleImageUpload} />
           <textarea placeholder="About This Property" className="input w-full md:col-span-2" rows={4} value={newProperty.about} onChange={e => setNewProperty({ ...newProperty, about: e.target.value })} />
+          
+          {/* Feature Input */}
+          <div className="md:col-span-2">
+            <div className="flex gap-2 mb-2">
+              <input
+                placeholder="Add feature (e.g. Solar panel)"
+                value={newFeature}
+                onChange={(e) => setNewFeature(e.target.value)}
+                className="input w-full"
+              />
+              <button
+                onClick={handleAddFeature}
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium"
+              >
+                Add Feature
+              </button>
+            </div>
+            {/* Feature List */}
+            <ul className="list-disc pl-5 text-gray-700">
+              {newProperty.features.map((feature, i) => (
+                <li key={i} className="flex justify-between items-center">
+                  {feature}
+                  <button
+                    onClick={() => handleDeleteFeature(i)}
+                    className="ml-2 text-red-500 hover:text-red-700 text-sm"
+                  >
+                    ❌
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
         <button
           onClick={addProperty}
           className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition mt-2"
@@ -99,9 +165,19 @@ export default function AdminProperties() {
               <p className="text-gray-800 font-semibold mb-3">${prop.price?.toLocaleString()}</p>
               <p className="text-sm text-gray-600 mb-2">{prop.bedrooms} Beds • {prop.bathrooms} Baths • {prop.sqft} sqft</p>
               <p className="text-sm text-gray-500 mb-4 whitespace-pre-line">{prop.about}</p>
+
+              {/* Display features */}
+              {prop.features?.length > 0 && (
+                <ul className="list-disc pl-5 mb-4 text-gray-700">
+                  {prop.features.map((f: string, i: number) => (
+                    <li key={i}>{f}</li>
+                  ))}
+                </ul>
+              )}
+
               <div className="flex gap-2 mt-auto overflow-x-auto mb-2">
-                {prop.image_urls?.map((url: string) => (
-                  <img key={url} src={url} className="w-16 h-16 object-cover rounded" />
+                {prop.image_urls?.map((url: string, index: number) => (
+                  <img key={index} src={url} className="w-16 h-16 object-cover rounded" />
                 ))}
               </div>
               <button
@@ -117,6 +193,3 @@ export default function AdminProperties() {
     </div>
   );
 }
-
-// Tailwind CSS for .input:
-// .input { @apply border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50; }

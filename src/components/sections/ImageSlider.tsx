@@ -1,30 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { supabase } from '../../lib/supabaseClient';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const slides = [
-  {
-    image: "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg",
-    title: "Luxury Waterfront Living",
-    subtitle: "Experience unparalleled riverside elegance"
-  },
-  {
-    image: "https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg",
-    title: "Exclusive Inland Estates",
-    subtitle: "Where luxury meets sophisticated design"
-  },
-  {
-    image: "https://images.pexels.com/photos/2873064/pexels-photo-2873064.jpeg",
-    title: "Smart Homes",
-    subtitle: "The future of sustainable luxury living"
-  }
-];
+interface Slide {
+  image_url: string;
+  title: string;
+  subtitle: string;
+}
 
 const ImageSlider: React.FC = () => {
+  const [slides, setSlides] = useState<Slide[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSlides = async () => {
+      const { data, error } = await supabase
+        .from('homepage_slider')
+        .select('image_url, title, subtitle')
+        .eq('active', true) // ✅ Only show active slides
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching slides:', error.message);
+      } else {
+        setSlides(data || []);
+      }
+      setLoading(false);
+    };
+
+    fetchSlides();
+  }, []);
+
+  if (loading) {
+    return <div className="h-screen flex items-center justify-center text-slate-500">Loading slider...</div>;
+  }
+
   return (
     <div className="relative h-screen">
       <Swiper
@@ -40,7 +55,7 @@ const ImageSlider: React.FC = () => {
           <SwiperSlide key={index}>
             <div className="relative h-full">
               <img
-                src={slide.image}
+                src={slide.image_url}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />

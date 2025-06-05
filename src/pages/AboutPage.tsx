@@ -42,7 +42,7 @@ const AboutPage: React.FC = () => {
             <div className="relative">
               <div className="relative z-10 rounded overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg" 
+                  src="https://res.cloudinary.com/dpchk1ggu/image/upload/v1749121785/ij8or7cvlab9r7akyths.png" 
                   alt="Luxury Estate"
                   className="w-full h-full object-cover"
                 />

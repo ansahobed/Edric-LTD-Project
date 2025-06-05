@@ -20,7 +20,7 @@ const PropertyTypes: React.FC = () => {
           {/* Riverfront Properties */}
           <div className="relative group overflow-hidden rounded shadow-lg">
             <img
-              src="https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg"
+              src="https://res.cloudinary.com/dpchk1ggu/image/upload/v1749127061/rprqks05lbseskkqyoql.jpg"
               alt="Luxury Riverfront Property"
               className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
             />

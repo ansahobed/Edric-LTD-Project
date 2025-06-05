@@ -45,7 +45,7 @@ const PropertiesPage: React.FC = () => {
       <Hero 
         title="Luxury Property Collection"
         subtitle="Browse our exclusive selection of extraordinary properties designed for discerning individuals."
-        imageUrl="https://images.pexels.com/photos/2873064/pexels-photo-2873064.jpeg"
+        imageUrl="https://res.cloudinary.com/dpchk1ggu/image/upload/v1749055463/edric-limited-assets/bjeuus5zjtth4p9gzgmc.png"
       />
 
       <section className="section-padding">

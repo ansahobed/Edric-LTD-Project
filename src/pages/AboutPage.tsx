@@ -32,7 +32,7 @@ const AboutPage: React.FC = () => {
                   unwavering commitment to quality, integrity, and personalized service.
                 </p>
                 <p>
-                  Today, EDRIC Limited leads the luxury market not only in matching exceptional 
+                  Today, We leads the luxury market not only in matching exceptional 
                   clients with extraordinary properties but also in pioneering the integration of 
                   sustainability and smart technology into the luxury real estate experience.
                 </p>

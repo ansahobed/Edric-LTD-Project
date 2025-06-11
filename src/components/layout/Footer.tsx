@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-charcoal-700 mt-12 pt-8 text-center text-slate-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} EDRIC Limited. All rights reserved.  By: IT Department</p>
+          <p>&copy; {new Date().getFullYear()} EDRIC Limited. All rights reserved.</p>
         </div>
       </div>
     </footer>

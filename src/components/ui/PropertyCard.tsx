@@ -29,11 +29,11 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
           />
           <div className="absolute top-4 left-4">
             <span className={`text-xs font-medium uppercase py-1 px-3 rounded-sm ${
-              property.type === 'riverfront' 
+              property.type === 'Waterfront' 
                 ? 'bg-blue-500 text-white' 
                 : 'bg-charcoal-700 text-white'
             }`}>
-              {property.type === 'riverfront' ? 'Riverfront' : 'Inland'}
+              {property.type === 'waterfront' ? 'Waterfront' : 'Inland'}
             </span>
           </div>
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">

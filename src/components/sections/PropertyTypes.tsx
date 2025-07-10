@@ -21,18 +21,18 @@ const PropertyTypes: React.FC = () => {
           <div className="relative group overflow-hidden rounded shadow-lg">
             <img
               src="https://res.cloudinary.com/dpchk1ggu/image/upload/v1749127061/rprqks05lbseskkqyoql.jpg"
-              alt="Luxury Riverfront Property"
+              alt="Luxury Waterfront Property"
               className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-charcoal-900/40 to-transparent flex flex-col justify-end p-8">
-              <h3 className="text-white font-serif text-3xl mb-3">Riverfront Estates</h3>
+              <h3 className="text-white font-serif text-3xl mb-3">Waterfront Estates</h3>
               <p className="text-white mb-6 max-w-md">
                 Exceptional waterfront properties featuring private docks, boat lifts, and panoramic water views.
                 Perfect for those seeking a lifestyle connected to the water, with yacht and water recreation amenities.
               </p>
               <Link to="/properties">
                 <Button variant="primary">
-                  View Riverfront Properties
+                  View Waterfront Properties
                 </Button>
               </Link>
             </div>

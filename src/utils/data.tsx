@@ -1,7 +1,7 @@
 export interface Property {
   id: string;
   title: string;
-  type: 'riverfront' | 'inland';
+  type: 'waterfront' | 'inland';
   price: number;
   bedrooms: number;
   bathrooms: number;
@@ -31,7 +31,7 @@ export const properties: Property[] = [
   {
     id: "p1",
     title: "Riverside Luxury Villa",
-    type: "riverfront",
+    type: "waterfront",
     price: 4850000,
     bedrooms: 5,
     bathrooms: 6,
@@ -123,7 +123,7 @@ export const properties: Property[] = [
   {
     id: "p3",
     title: "Waterfront Contemporary Estate",
-    type: "riverfront",
+    type: "waterfront",
     price: 5750000,
     bedrooms: 4,
     bathrooms: 5,
@@ -170,7 +170,7 @@ export const properties: Property[] = [
     id: "p4",
     title: "Mountain View Luxury Retreat",
     type: "inland",
-    price: 4200000,
+    price: 42000000,
     bedrooms: 5,
     bathrooms: 6,
     sqft: 5800,
@@ -214,8 +214,8 @@ export const properties: Property[] = [
   {
     id: "p5",
     title: "Waterside Modern Masterpiece",
-    type: "riverfront",
-    price: 7950000,
+    type: "waterfront",
+    price: 79500000,
     bedrooms: 6,
     bathrooms: 7,
     sqft: 8800,

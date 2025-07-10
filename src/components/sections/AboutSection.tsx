@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-serif text-charcoal-800 mb-6">
-              Redefining Luxury Real Estate Since 2025
+              Redefining Luxury Real Estate 
             </h2>
             <p className="text-slate-600 mb-6">
               At EDRIC Limited, we specialize in exceptional properties that represent the pinnacle of luxury living. 
@@ -59,7 +59,7 @@ const AboutSection: React.FC = () => {
           <div className="relative">
             <div className="relative z-10 rounded overflow-hidden shadow-xl">
               <img 
-                src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg" 
+                src="https://res.cloudinary.com/dpchk1ggu/image/upload/v1749058314/edric-limited-assets/xszcxs4ezdgtj9pvzqxn.png" 
                 alt="Luxury Estate"
                 className="w-full h-full object-cover"
               />

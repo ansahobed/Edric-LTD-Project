@@ -67,18 +67,18 @@ const PropertiesPage: React.FC = () => {
                 <label className="block text-sm font-medium text-charcoal-700 mb-1">Min Price</label>
                 <select name="minPrice" value={filters.minPrice} onChange={handleFilterChange} className="w-full px-3 py-2 border border-slate-300 rounded-sm">
                   <option value="">Any</option>
-                  <option value="1000000">$10,000,000</option>
-                  <option value="2000000">$20,000,000</option>
-                  <option value="3000000">$30,000,000</option>
+                  <option value="10000000">$10,000,000</option>
+                  <option value="20000000">$20,000,000</option>
+                  <option value="30000000">$30,000,000</option>
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-charcoal-700 mb-1">Max Price</label>
                 <select name="maxPrice" value={filters.maxPrice} onChange={handleFilterChange} className="w-full px-3 py-2 border border-slate-300 rounded-sm">
                   <option value="">Any</option>
-                  <option value="3000000">$300,000,000</option>
-                  <option value="5000000">$500,000,000</option>
-                  <option value="10000000">$1,000,000,000</option>
+                  <option value="300000000">$300,000,000</option>
+                  <option value="50000000">$500,000,000</option>
+                  <option value="1000000000">$1,000,000,000</option>
                 </select>
               </div>
               <div>

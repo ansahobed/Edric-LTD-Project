@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li>
                 <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  Riverfront Estates
+                  Waterfront Estates
                 </Link>
               </li>
               <li>
@@ -71,12 +71,17 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  Penthouse Suites
+                  The Dunes
                 </Link>
               </li>
               <li>
                 <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  Eco-Friendly Homes
+                  The Terrace  Homes
+                </Link>
+              </li>
+              <li>
+                <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
+                  Inlands Retreats 
                 </Link>
               </li>
             </ul>

@@ -73,11 +73,11 @@ const PropertyDetailPage: React.FC = () => {
           {/* Property Header */}
           <div className="mb-8">
             <span className={`inline-block text-xs font-medium uppercase py-1 px-3 rounded-sm mb-2 ${
-              property.type === 'riverfront' 
+              property.type === 'waterfront' 
                 ? 'bg-blue-500 text-white' 
                 : 'bg-charcoal-700 text-white'
             }`}>
-              {property.type === 'riverfront' ? 'Riverfront' : 'Inland'}
+              {property.type === 'waterfront' ? 'Waterfront' : 'Inland'}
             </span>
             
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal-800 mb-4">

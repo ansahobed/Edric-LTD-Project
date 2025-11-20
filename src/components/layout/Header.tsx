@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Properties', path: '/properties' },
-    { name: 'Watercrafts', path: '/#watercrafts' }, // ✅ Added Watercrafts
+    { name: 'Watercrafts', path: '/watercrafts' }, // ✅ Navigate to Watercrafts page
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -46,16 +46,14 @@ const Header: React.FC = () => {
           <ul className="flex space-x-8">
             {navLinks.map((link) => (
               <li key={link.path}>
-                <a
-                  href={link.path} // Use anchor for scroll-to-section or external page
+                <Link
+                  to={link.path} // Use Link from react-router-dom
                   className={`font-medium text-sm tracking-wider hover:text-gold-500 transition-colors ${
-                    isScrolled ? 'text-charcoal-700' : 'text-charcoal-700'
-                  } ${
-                    location.pathname === link.path.replace('/#watercrafts', '/') ? 'border-b-2 border-gold-500' : ''
+                    location.pathname === link.path ? 'border-b-2 border-gold-500 text-charcoal-800' : 'text-charcoal-700'
                   }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -66,11 +64,7 @@ const Header: React.FC = () => {
           className="md:hidden text-2xl focus:outline-none z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? (
-            <X className={`w-6 h-6 text-charcoal-800`} />
-          ) : (
-            <Menu className={`w-6 h-6 text-charcoal-800`} />
-          )}
+          {isMobileMenuOpen ? <X className="w-6 h-6 text-charcoal-800" /> : <Menu className="w-6 h-6 text-charcoal-800" />}
         </button>
 
         {/* Mobile Navigation */}
@@ -79,14 +73,14 @@ const Header: React.FC = () => {
             <ul className="flex flex-col space-y-6 text-center">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                  <a
-                    href={link.path}
-                    className={`font-medium text-xl tracking-wider hover:text-gold-500 transition-colors text-charcoal-800 ${
-                      location.pathname === link.path.replace('/#watercrafts', '/') ? 'text-gold-500' : ''
+                  <Link
+                    to={link.path} // Use Link here too
+                    className={`font-medium text-xl tracking-wider hover:text-gold-500 transition-colors ${
+                      location.pathname === link.path ? 'text-gold-500' : 'text-charcoal-800'
                     }`}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

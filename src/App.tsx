@@ -17,10 +17,13 @@ import AdminBoats from './pages/admin/boats';
 import AdminProjects from './pages/admin/projects';
 import AdminInvestors from './pages/admin/investors';
 import AdminPartners from './pages/admin/partners';
-import AdminImageSlider from './pages/admin/imageslider'; // ✅ Correct path to page
+import AdminImageSlider from './pages/admin/imageslider';
 
 // Public project overview
 import ProjectOverview from './pages/projects/[id]';
+
+// Public Watercrafts page
+import WatercraftsPage from './pages/WatercraftsPage';
 
 function App() {
   return (
@@ -37,6 +40,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/projects/:id" element={<ProjectOverview />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/watercrafts" element={<WatercraftsPage />} /> {/* ✅ Watercrafts page */}
 
             {/* Admin auth + dashboard */}
             <Route path="/login" element={<LoginPage />} />
@@ -46,7 +50,7 @@ function App() {
             <Route path="/admin/projects" element={<AdminProjects />} />
             <Route path="/admin/investors" element={<AdminInvestors />} />
             <Route path="/admin/partners" element={<AdminPartners />} />
-            <Route path="/admin/imageslider" element={<AdminImageSlider />} /> {/* ✅ NEW ROUTE */}
+            <Route path="/admin/imageslider" element={<AdminImageSlider />} />
           </Routes>
         </main>
         <Footer />

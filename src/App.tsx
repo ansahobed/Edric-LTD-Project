@@ -7,6 +7,8 @@ import PropertiesPage from './pages/PropertiesPage';
 import PropertyDetailPage from './pages/PropertyDetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import WatercraftsPage from './pages/WatercraftsPage'; // ✅ Public watercrafts page
+//import WatercraftDetailPage from './pages/WatercraftDetailPage'; // ✅ Public watercraft detail page
 
 // Admin pages
 import LoginPage from './pages/login';
@@ -19,11 +21,9 @@ import AdminInvestors from './pages/admin/investors';
 import AdminPartners from './pages/admin/partners';
 import AdminImageSlider from './pages/admin/imageslider';
 
-// Public project overview
-import ProjectOverview from './pages/projects/[id]';
 
-// Public Watercrafts page
-import WatercraftsPage from './pages/WatercraftsPage';
+// Public project overview
+import ProjectOverview from './pages/projects/ProjectOverview';
 
 function App() {
   return (
@@ -38,9 +38,10 @@ function App() {
             <Route path="/properties/:id" element={<PropertyDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/watercrafts" element={<WatercraftsPage />} />
+            
             <Route path="/projects/:id" element={<ProjectOverview />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/watercrafts" element={<WatercraftsPage />} /> {/* ✅ Watercrafts page */}
 
             {/* Admin auth + dashboard */}
             <Route path="/login" element={<LoginPage />} />
@@ -51,6 +52,7 @@ function App() {
             <Route path="/admin/investors" element={<AdminInvestors />} />
             <Route path="/admin/partners" element={<AdminPartners />} />
             <Route path="/admin/imageslider" element={<AdminImageSlider />} />
+           
           </Routes>
         </main>
         <Footer />

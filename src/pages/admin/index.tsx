@@ -9,9 +9,9 @@ const adminLinks = [
     desc: "Add, edit, or remove Property listings.",
   },
   {
-    name: "Manage Boats & Watercrafts",
+    name: "Manage Watercrafts", // ✅ updated name
     icon: <Anchor className="w-7 h-7 text-blue-500" />,
-    to: "/admin/boats",
+    to: "/admin/watercrafts", // ✅ updated route to WatercraftsManager
     desc: "Showcase and update water vehicles.",
   },
   {

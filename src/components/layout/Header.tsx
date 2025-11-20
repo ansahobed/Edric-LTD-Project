@@ -22,6 +22,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Properties', path: '/properties' },
+    { name: 'Watercrafts', path: '/#watercrafts' }, // ✅ Added Watercrafts
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -36,9 +37,7 @@ const Header: React.FC = () => {
         <Link to="/" className="flex items-center">
           <span className="font-serif text-2xl font-bold leading-none text-charcoal-800">
             EDRIC&nbsp;
-            <span className="ml-1 font-bold text-gold-600">
-              Limited
-            </span>
+            <span className="ml-1 font-bold text-gold-600">Limited</span>
           </span>
         </Link>
 
@@ -47,16 +46,16 @@ const Header: React.FC = () => {
           <ul className="flex space-x-8">
             {navLinks.map((link) => (
               <li key={link.path}>
-                <Link
-                  to={link.path}
+                <a
+                  href={link.path} // Use anchor for scroll-to-section or external page
                   className={`font-medium text-sm tracking-wider hover:text-gold-500 transition-colors ${
                     isScrolled ? 'text-charcoal-700' : 'text-charcoal-700'
                   } ${
-                    location.pathname === link.path ? 'border-b-2 border-gold-500' : ''
+                    location.pathname === link.path.replace('/#watercrafts', '/') ? 'border-b-2 border-gold-500' : ''
                   }`}
                 >
                   {link.name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -80,14 +79,14 @@ const Header: React.FC = () => {
             <ul className="flex flex-col space-y-6 text-center">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                  <Link
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className={`font-medium text-xl tracking-wider hover:text-gold-500 transition-colors text-charcoal-800 ${
-                      location.pathname === link.path ? 'text-gold-500' : ''
+                      location.pathname === link.path.replace('/#watercrafts', '/') ? 'text-gold-500' : ''
                     }`}
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

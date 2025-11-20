@@ -6,10 +6,10 @@ const adminLinks = [
     name: "Manage Properties",
     icon: <Building className="w-7 h-7 text-gold-600" />,
     to: "/admin/properties",
-    desc: "Add, edit, or remove real estate listings.",
+    desc: "Add, edit, or remove Property listings.",
   },
   {
-    name: "Manage Boats",
+    name: "Manage Boats & Watercrafts",
     icon: <Anchor className="w-7 h-7 text-blue-500" />,
     to: "/admin/boats",
     desc: "Showcase and update water vehicles.",

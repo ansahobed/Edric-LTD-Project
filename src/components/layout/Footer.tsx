@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  // Scroll page to top when navigating
+  const scrollToTop = () => window.scrollTo(0, 0);
+
   return (
     <footer className="bg-charcoal-800 text-white">
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
           {/* Company Info */}
           <div>
             <h3 className="font-serif text-2xl mb-6">
-              EDRIC<span className="text-gold-500">  Limited</span>
+              EDRIC<span className="text-gold-500"> Limited</span>
             </h3>
             <p className="text-slate-300 mb-6">
               Redefining luxury living with exclusive properties that blend opulence and sustainability.
@@ -33,22 +37,31 @@ const Footer: React.FC = () => {
             <h4 className="font-serif text-xl mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-slate-300 hover:text-gold-500 transition-colors">
+                <Link to="/" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   Home
                 </Link>
               </li>
+
               <li>
-                <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
+                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   Properties
                 </Link>
               </li>
+
               <li>
-                <Link to="/about" className="text-slate-300 hover:text-gold-500 transition-colors">
+                <Link to="/watercrafts" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
+                  Watercrafts
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/about" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   About Us
                 </Link>
               </li>
+
               <li>
-                <Link to="/contact" className="text-slate-300 hover:text-gold-500 transition-colors">
+                <Link to="/contact" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   Contact
                 </Link>
               </li>
@@ -60,28 +73,28 @@ const Footer: React.FC = () => {
             <h4 className="font-serif text-xl mb-6">Properties</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
+                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   Waterfront Estates
                 </Link>
               </li>
               <li>
-                <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
+                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   Luxury Villas
                 </Link>
               </li>
               <li>
-                <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
+                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   The Dunes
                 </Link>
               </li>
               <li>
-                <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  The Terrace  Homes
+                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
+                  The Terrace Homes
                 </Link>
               </li>
               <li>
-                <Link to="/properties" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  Inlands Retreats 
+                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
+                  Inland Retreats
                 </Link>
               </li>
             </ul>
@@ -93,12 +106,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 text-gold-500 flex-shrink-0 mt-1" />
-                <span className="text-slate-300">No. 1 Quail Link Comm. 17, Tema, P.O BOX SK 1653 . Accra-Ghana</span>
+                <span className="text-slate-300">
+                  No. 1 Quail Link Comm. 17, Tema, P.O BOX SK 1653. Accra-Ghana
+                </span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-3 text-gold-500 flex-shrink-0" />
                 <a href="tel:+233303409426" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  (233)-30-340-9426 
+                  (233)-30-340-9426
                 </a>
               </li>
               <li className="flex items-center">

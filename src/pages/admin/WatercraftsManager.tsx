@@ -368,7 +368,7 @@ export default function WatercraftsManager() {
                 key={type}
                 className="border p-2 rounded w-full hover:bg-gray-100 mb-2"
                 onClick={() => {
-                  setNewWatercraft({ ...newWatercraft, type });
+                  setNewWatercraft({ ...newWatercraft,  });
                   setShowTypeModal(false);
                 }}
                 type="button"

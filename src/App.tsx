@@ -8,6 +8,9 @@ import PropertyDetailPage from './pages/PropertyDetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import WatercraftsPage from './pages/WatercraftsPage'; // ✅ Public watercrafts page
+import WatercraftDetailPage from "./pages/WatercraftDetailPage";
+
+
 //import WatercraftDetailPage from './pages/WatercraftDetailPage'; // ✅ Public watercraft detail page
 
 // Admin pages
@@ -20,6 +23,7 @@ import AdminProjects from './pages/admin/projects';
 import AdminInvestors from './pages/admin/investors';
 import AdminPartners from './pages/admin/partners';
 import AdminImageSlider from './pages/admin/imageslider';
+import WatercraftsManager from './pages/admin/WatercraftsManager'; // ✅ Updated import
 
 
 // Public project overview
@@ -52,6 +56,9 @@ function App() {
             <Route path="/admin/investors" element={<AdminInvestors />} />
             <Route path="/admin/partners" element={<AdminPartners />} />
             <Route path="/admin/imageslider" element={<AdminImageSlider />} />
+             <Route path="/admin/watercrafts" element={<WatercraftsManager />} /> {/* ✅ New route */}
+             <Route path="/watercrafts/:id" element={<WatercraftDetailPage />} />
+
            
           </Routes>
         </main>

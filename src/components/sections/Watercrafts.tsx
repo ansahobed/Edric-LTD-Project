@@ -1,3 +1,4 @@
+// src/components/Watercrafts.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../ui/Button';
@@ -5,11 +6,11 @@ import Button from '../ui/Button';
 const Watercrafts: React.FC = () => {
   const navigate = useNavigate();
 
-  const watercrafts = [
-    { title: 'Yachts', image: 'https://res.cloudinary.com/dpchk1ggu/image/upload/v1749127061/rprqks05lbseskkqyoql.jpg' },
-    { title: 'Boats', image: 'https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg' },
-    { title: 'Jet Skis', image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg' },
-    { title: 'Kayaks', image: 'https://images.pexels.com/photos/34153/pexels-photo.jpg' },
+  const watercraftTypes = [
+    { title: 'Yachts', image: 'https://res.cloudinary.com/dpchk1ggu/image/upload/v1763735186/ruti0retvozc9nctdyrt.png' },
+    { title: 'Boats', image: 'https://res.cloudinary.com/dpchk1ggu/image/upload/v1763727604/vx1exg5swosfakrnudfo.jpg' },
+    { title: 'Jet Skis', image: 'https://res.cloudinary.com/dpchk1ggu/image/upload/v1763635480/edric-limited-assets/dtpdgteypelplaact8zs.png' },
+    { title: 'Kayaks', image: 'https://res.cloudinary.com/dpchk1ggu/image/upload/v1763727002/mxgunsvhcaynu1ynijhf.png' },
   ];
 
   return (
@@ -23,11 +24,11 @@ const Watercrafts: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {watercrafts.map((craft, index) => (
+          {watercraftTypes.map((craft, index) => (
             <div
               key={index}
               className="relative group cursor-pointer overflow-hidden rounded shadow-lg"
-              onClick={() => navigate('/watercrafts', { state: { selected: craft.title } })}
+              onClick={() => navigate('/watercrafts', { state: { selectedType: craft.title } })}
             >
               <img
                 src={craft.image}

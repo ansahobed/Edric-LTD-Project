@@ -1,82 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Button from '../components/ui/Button';
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabaseClient";
+import Button from "../components/ui/Button";
 
-const allWatercrafts = [
-  {
-    type: 'Yachts',
-    images: [
-      'https://res.cloudinary.com/dpchk1ggu/image/upload/v1749127061/rprqks05lbseskkqyoql.jpg',
-      'https://images.pexels.com/photos/287776/pexels-photo-287776.jpeg',
-    ],
-    description: 'Luxury yachts with premium amenities for a lavish lifestyle.',
-  },
-  {
-    type: 'Boats',
-    images: [
-      'https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg',
-      'https://images.pexels.com/photos/236258/pexels-photo-236258.jpeg',
-    ],
-    description: 'High-end boats for leisure, fishing, and water adventures.',
-  },
-  {
-    type: 'Jet Skis',
-    images: [
-      'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg',
-      'https://images.pexels.com/photos/1633975/pexels-photo-1633975.jpeg',
-    ],
-    description: 'Fast and thrilling personal watercraft for water sports.',
-  },
-  {
-    type: 'Kayaks',
-    images: [
-      'https://images.pexels.com/photos/34153/pexels-photo.jpg',
-      'https://images.pexels.com/photos/68646/pexels-photo-68646.jpeg',
-    ],
-    description: 'Adventure and leisure kayaks for rivers, lakes, and coastal exploration.',
-  },
-];
+interface Watercraft {
+  id: number;
+  name: string;
+  type: string;
+  seats?: number;
+  color?: string;
+  size?: string;
+  brand?: string;
+  images?: string[];
+  description?: string;
+}
 
-const WatercraftsPage: React.FC = () => {
+export default function WatercraftsPage() {
   const location = useLocation();
-  const [selectedType, setSelectedType] = useState<string | null>(null);
-  const [displayedCrafts, setDisplayedCrafts] = useState(allWatercrafts);
+  const navigate = useNavigate();
+  const initialCategory = location.state?.selectedCategory || null;
 
-  // If navigated from homepage with a selected watercraft
-  useEffect(() => {
-    if (location.state && (location.state as any).selected) {
-      const type = (location.state as any).selected;
-      setSelectedType(type);
-      setDisplayedCrafts(allWatercrafts.filter(c => c.type === type));
+  const [watercrafts, setWatercrafts] = useState<Watercraft[]>([]);
+  const [displayedCrafts, setDisplayedCrafts] = useState<Watercraft[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(initialCategory);
+  const [loading, setLoading] = useState(true);
+
+  const categories = ["Boats", "Yachts", "Jet Skis", "Kayaks"];
+
+  const fetchWatercrafts = async () => {
+    const { data, error } = await supabase.from("watercrafts").select("*");
+    if (error) console.error(error);
+    else {
+      setWatercrafts(data);
+      if (initialCategory) {
+        setDisplayedCrafts(data.filter((c) => c.type === initialCategory));
+      } else {
+        setDisplayedCrafts(data);
+      }
     }
-  }, [location.state]);
-
-  const handleSelect = (type: string) => {
-    setSelectedType(type);
-    setDisplayedCrafts(allWatercrafts.filter(c => c.type === type));
+    setLoading(false);
   };
+
+  useEffect(() => {
+    fetchWatercrafts();
+  }, []);
+
+  const handleSelect = (category: string | null) => {
+    setSelectedCategory(category);
+    if (category) setDisplayedCrafts(watercrafts.filter(c => c.type === category));
+    else setDisplayedCrafts(watercrafts);
+  };
+
+  if (loading) return <p className="p-10 text-center">Loading...</p>;
 
   return (
     <section className="section-padding bg-gray-50 min-h-screen">
-      <div className="container-custom">
+      <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-serif font-bold text-charcoal-800 mb-2">Watercrafts Collection</h1>
+          <h1 className="text-4xl font-serif font-bold text-charcoal-800 mb-2">
+            Watercrafts Collection
+          </h1>
           <p className="text-slate-600 max-w-2xl mx-auto mb-6">
-            Select a watercraft type to see all available images and details.
+            Select a watercraft category to see all available images and details.
           </p>
 
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
-            {allWatercrafts.map(c => (
+            {categories.map((cat) => (
               <Button
-                key={c.type}
-                variant={selectedType === c.type ? 'primary' : 'outline'}
-                onClick={() => handleSelect(c.type)}
+                key={cat}
+                variant={selectedCategory === cat ? "primary" : "outline"}
+                onClick={() => handleSelect(cat)}
               >
-                {c.type}
+                {cat}
               </Button>
             ))}
-            <Button variant="outline" onClick={() => { setSelectedType(null); setDisplayedCrafts(allWatercrafts); }}>
+            <Button variant="outline" onClick={() => handleSelect(null)}>
               All
             </Button>
           </div>
@@ -84,16 +83,50 @@ const WatercraftsPage: React.FC = () => {
 
         {/* Watercraft Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayedCrafts.map((craft, idx) => (
-            <div key={idx} className="bg-white rounded-lg shadow-lg overflow-hidden">
+          {displayedCrafts.map((craft) => (
+            <div
+              key={craft.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              {/* Text Section */}
               <div className="p-6">
-                <h2 className="text-2xl font-serif text-charcoal-800 mb-2">{craft.type}</h2>
-                <p className="text-slate-600 mb-4">{craft.description}</p>
+                <h2
+                  className="text-2xl font-serif text-charcoal-800 mb-2 cursor-pointer hover:underline"
+                  onClick={() => navigate(`/watercrafts/${craft.id}`)}
+                >
+                  {craft.name}
+                </h2>
+                <p className="text-slate-600 mb-4">{craft.description || craft.type}</p>
+                <div className="text-sm space-y-1">
+                  {craft.brand && <p>Brand: {craft.brand}</p>}
+                  {craft.size && <p>Size: {craft.size}</p>}
+                  {craft.color && <p>Color: {craft.color}</p>}
+                  {craft.seats && <p>Seats: {craft.seats}</p>}
+                </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-4">
-                {craft.images.map((img, i) => (
-                  <img key={i} src={img} alt={`${craft.type} ${i}`} className="w-full h-48 object-cover rounded" />
-                ))}
+
+              {/* Images Section */}
+                   <div className="flex flex-col gap-2 p-4">
+                     {craft.images?.map((img, i) => (
+                      <img
+                           key={i}
+                           src={img}
+                         alt={`${craft.name} ${i}`}
+                        className="w-full h-72 object-cover rounded cursor-pointer"
+                       onClick={() => navigate(`/watercrafts/${craft.id}`)}
+                                                                           />
+                                     )) || (
+                        <div className="w-full h-72 bg-gray-200 flex items-center justify-center rounded">
+                               No Images
+                                  </div>
+      )}
+                     </div>
+
+              {/* View Details Button Beneath Images */}
+              <div className="p-6 text-center">
+                <Button onClick={() => navigate(`/watercrafts/${craft.id}`)}>
+                  View Details
+                </Button>
               </div>
             </div>
           ))}
@@ -101,6 +134,4 @@ const WatercraftsPage: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default WatercraftsPage;
+}

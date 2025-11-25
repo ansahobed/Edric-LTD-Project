@@ -77,21 +77,7 @@ const Footer: React.FC = () => {
                   Waterfront Estates
                 </Link>
               </li>
-              <li>
-                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
-                  Luxury Villas
-                </Link>
-              </li>
-              <li>
-                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
-                  The Dunes
-                </Link>
-              </li>
-              <li>
-                <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
-                  The Terrace Homes
-                </Link>
-              </li>
+              
               <li>
                 <Link to="/properties" onClick={scrollToTop} className="text-slate-300 hover:text-gold-500 transition-colors">
                   Inland Retreats
@@ -122,12 +108,7 @@ const Footer: React.FC = () => {
                   (233)-24-415-8119
                 </a>
               </li>
-              <li className="flex items-center">
-                <Mail size={20} className="mr-3 text-gold-500 flex-shrink-0" />
-                <a href="mailto:info@edric.group" className="text-slate-300 hover:text-gold-500 transition-colors">
-                  info@edric.group
-                </a>
-              </li>
+             
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 text-gold-500 flex-shrink-0" />
                 <a href="mailto:ceo@edric.group" className="text-slate-300 hover:text-gold-500 transition-colors">

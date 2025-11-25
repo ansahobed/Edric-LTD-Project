@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageSlider from '../components/sections/ImageSlider';
-import FeaturedProperties from '../components/sections/FeaturedProperties';
+//import FeaturedProperties from '../components/sections/FeaturedProperties';
 import PropertyTypes from '../components/sections/PropertyTypes';
 import AboutSection from '../components/sections/AboutSection';
 //import TestimonialsSection from '../components/sections/TestimonialsSection';
@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <ImageSlider />
-      <FeaturedProperties />
+      {/*<FeaturedProperties />*/}
       <PropertyTypes />
       <Watercrafts /> {/* ✅ Correct component usage */}
       <AboutSection />

@@ -1,43 +1,13 @@
 import { Link } from "react-router-dom";
-import { Home, Building, Anchor, Layers, Users, Image } from "lucide-react"; // ✅ import Image icon
+import { Building, Anchor, Layers, Users, Image, LogOut } from "lucide-react";
 
 const adminLinks = [
-  {
-    name: "Manage Properties",
-    icon: <Building className="w-7 h-7 text-gold-600" />,
-    to: "/admin/properties",
-    desc: "Add, edit, or remove Property listings.",
-  },
-  {
-    name: "Manage Watercrafts", // ✅ updated name
-    icon: <Anchor className="w-7 h-7 text-blue-500" />,
-    to: "/admin/watercrafts", // ✅ updated route to WatercraftsManager
-    desc: "Showcase and update water vehicles.",
-  },
-  {
-    name: "Manage Projects",
-    icon: <Layers className="w-7 h-7 text-emerald-600" />,
-    to: "/admin/projects",
-    desc: "Track project progress and investor details.",
-  },
-  {
-    name: "Investor Leads",
-    icon: <Users className="w-7 h-7 text-charcoal-700" />,
-    to: "/admin/investors",
-    desc: "Review and respond to investor inquiries.",
-  },
-  {
-    name: "Trusted Partners",
-    icon: <Users className="w-7 h-7 text-charcoal-700" />,
-    to: "/admin/partners",
-    desc: "Add or edit affiliated partners & institutions.",
-  },
-  {
-    name: "Homepage Image Slider", // ✅ NEW item
-    icon: <Image className="w-7 h-7 text-pink-600" />, // ✅ Use a relevant icon
-    to: "/admin/imageslider",
-    desc: "Add, update, or remove homepage carousel images.",
-  },
+  { name: "Manage Properties", icon: <Building className="w-7 h-7 text-gold-600" />, to: "/admin/properties", desc: "Add, edit, or remove Property listings." },
+  { name: "Manage Watercrafts", icon: <Anchor className="w-7 h-7 text-blue-500" />, to: "/admin/watercrafts", desc: "Showcase and update water vehicles." },
+  { name: "Manage Projects", icon: <Layers className="w-7 h-7 text-emerald-600" />, to: "/admin/projects", desc: "Track project progress and investor details." },
+  { name: "Investor Leads", icon: <Users className="w-7 h-7 text-charcoal-700" />, to: "/admin/investors", desc: "Review and respond to investor inquiries." },
+  { name: "Trusted Partners", icon: <Users className="w-7 h-7 text-charcoal-700" />, to: "/admin/partners", desc: "Add or edit affiliated partners & institutions." },
+  { name: "Homepage Image Slider", icon: <Image className="w-7 h-7 text-pink-600" />, to: "/admin/imageslider", desc: "Add, update, or remove homepage carousel images." },
 ];
 
 export default function AdminDashboard() {
@@ -53,8 +23,8 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl">
         {adminLinks.map((link) => (
           <Link
-            to={link.to}
             key={link.to}
+            to={link.to}
             className="group bg-white rounded-xl shadow-lg hover:shadow-xl border border-slate-100 p-7 flex flex-col items-start transition-all hover:-translate-y-1"
           >
             <div className="flex items-center gap-4 mb-3">

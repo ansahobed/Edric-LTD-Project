@@ -1,17 +1,34 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async () => {
-    const { error } = await supabase.auth.signUp({ email, password });
-    if (error) setError(error.message);
-    else navigate('/admin');
+    setError('');
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (error) setError(error.message);
+      else {
+        alert('Registration successful! Please check your email to confirm your account.');
+        navigate('/login');
+      }
+    } catch {
+      setError('Failed to register. Check your network connection.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -34,9 +51,13 @@ export default function RegisterPage() {
       <button
         onClick={handleRegister}
         className="bg-green-600 text-white px-4 py-2 rounded"
+        disabled={loading}
       >
-        Register
+        {loading ? 'Registering...' : 'Register'}
       </button>
+      <p className="mt-4">
+        Already have an account? <Link to="/login" className="text-blue-600">Login</Link>
+      </p>
     </div>
   );
 }

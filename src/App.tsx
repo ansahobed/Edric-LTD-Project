@@ -49,6 +49,7 @@ function App() {
 
             {/* Admin auth + dashboard */}
             <Route path="/login" element={<LoginPage />} />
+             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/properties" element={<AdminProperties />} />
             <Route path="/admin/boats" element={<AdminBoats />} />
